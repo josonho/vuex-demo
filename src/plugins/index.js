@@ -6,11 +6,24 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    userName: 'Joson',
+    todos: [
+      {id: 2, text: 'learn vue', done: false},
+      {id: 6, text: 'eat', done: true},
+    ],
+  },
+  getters: {
+    doneTodos: (state) => {
+      return state.todos.filter(todo => todo.done);
+    },
+    doneTodosCount: (state, getters) => {
+      return getters.doneTodos.length;
+    },
   },
   mutations: {
     increment (state) {
       state.count++
-    }
+    },
   }
 })

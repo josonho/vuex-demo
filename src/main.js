@@ -4,8 +4,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
 import store from './plugins/index'
 
-console.log(store);
-
 Vue.use(Button)
 
 Vue.config.productionTip = false

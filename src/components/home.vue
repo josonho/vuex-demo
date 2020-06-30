@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <el-button @click="onCount">add</el-button>
+    <el-button @click="onCount">add one</el-button>
   </div>
 </template>
 
