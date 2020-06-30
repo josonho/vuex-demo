@@ -1,26 +1,16 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import { Button } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
+import store from './plugins/index'
 
-Vue.use(Vuex);
+console.log(store);
+
 Vue.use(Button)
-
-const store = new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
-})
 
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  store: store,
+  store,
 }).$mount('#app')
