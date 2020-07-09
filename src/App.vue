@@ -8,6 +8,12 @@
     >
       done todo: {{ item.text }}
     </div>
+    <el-input 
+      placeholder="输入你要增加的值" 
+      @input="incrementSome"
+      v-model="num"
+      size="small"
+    />  
     <div>doneTodosCount: {{ doneTodosCount }}</div>
     <div>count: {{ count }}</div>
     <home />
@@ -26,6 +32,7 @@ export default {
   data() {
     return {
       firstName: 'Ho',
+      num: '',
     }
   },
   computed: {
@@ -44,10 +51,22 @@ export default {
       'doneTodosCount'
     ])
   },
+  methods: {
+    incrementSome(e) {
+      this.$store.commit('incrementSome', Number(e));
+    }
+
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
+* {
+  margin: 0 auto 20px;
+  max-width: 300px;
+  text-align: center;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -57,4 +76,6 @@ export default {
   margin-top: 60px;
   line-height: 30px;
 }
+
+
 </style>

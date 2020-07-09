@@ -1,6 +1,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+import types from './mutation-type'
 
 Vue.use(Vuex)
 
@@ -24,6 +25,12 @@ export default new Vuex.Store({
   mutations: {
     increment (state) {
       state.count++
+    },
+    incrementSome (state, n) {
+      state.count += n;
+    },
+    [types.COUNT_RESET] (state) {
+      state.count = 0;
     },
   }
 })

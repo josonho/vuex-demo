@@ -1,10 +1,13 @@
 <template>
   <div class="hello">
-    <el-button @click="onCount">add one</el-button>
+    <el-button class="mr-4" @click="onCount">add one</el-button>
+    <el-button type="danger" @click="resetCount">reset count</el-button>
   </div>
 </template>
 
 <script>
+import types from '../plugins/mutation-type'
+
 export default {
   name: 'HelloWorld',
   props: {
@@ -15,23 +18,9 @@ export default {
       this.$store.commit('increment');
       console.log(this.$store.state.count);
     },
+    resetCount() {
+      this.$store.commit(types.COUNT_RESET);
+    },
   },
 }
 </script>
-
-<style>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
