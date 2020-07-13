@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <div>user name: {{ userName }}</div>
-    <div>full name: {{ fullName }}</div>
+    <div class="row">user name: {{ userName }}</div>
+    <div class="row">full name: {{ fullName }}</div>
     <div 
+      class="row"
       v-for="item in doneTodos" 
       :key="item.id"
     >
@@ -14,8 +15,21 @@
       v-model="num"
       size="small"
     />  
-    <div>doneTodosCount: {{ doneTodosCount }}</div>
-    <div>count: {{ count }}</div>
+    <div class="row">doneTodosCount: {{ doneTodosCount }}</div>
+    <div class="row">count: {{ count }}</div>
+    <el-input 
+      placeholder="输入字符串，失去焦点后更新" 
+      @change="mutationsObject"
+      v-model="str"
+      size="small"
+    />
+    <el-input 
+      placeholder="输入字符串，失去焦点后更新" 
+      @change="mutationsObjectType"
+      v-model="str"
+      size="small"
+    />
+    <div class="row">{{str || 'please input string'}}</div>
     <home />
   </div>
 </template>
@@ -33,6 +47,7 @@ export default {
     return {
       firstName: 'Ho',
       num: '',
+      str: '',
     }
   },
   computed: {
@@ -54,27 +69,37 @@ export default {
   methods: {
     incrementSome(e) {
       this.$store.commit('incrementSome', Number(e));
-    }
-
+    },
+    mutationsObject(e) {
+      this.$store.commit('mutationsObject', {
+        str: `incrementObject:${e}`
+      });
+    },
+    mutationsObjectType(e) {
+      this.$store.commit({
+        type: 'mutationsObject',
+        str: `mutationsObjectType:${e}`
+      })
+    },
   },
 }
 </script>
 
 <style lang="scss">
-* {
-  margin: 0 auto 20px;
-  max-width: 300px;
-  text-align: center;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px auto 0;
   line-height: 30px;
+  max-width: 300px;
+
+  & * {
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }
 
 

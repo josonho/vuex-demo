@@ -32,5 +32,8 @@ export default new Vuex.Store({
     [types.COUNT_RESET] (state) {
       state.count = 0;
     },
+    mutationsObject (state, payload) {
+      state.str = payload.amount;
+    },
   }
 })
