@@ -18,14 +18,14 @@
     <div class="row">doneTodosCount: {{ doneTodosCount }}</div>
     <div class="row">count: {{ count }}</div>
     <el-input 
-      placeholder="输入字符串，失去焦点后更新" 
-      @change="mutationsObject"
+      placeholder="输入字符串" 
+      @input="mutationsObject"
       v-model="str"
       size="small"
     />
     <el-input 
-      placeholder="输入字符串，失去焦点后更新" 
-      @change="mutationsObjectType"
+      placeholder="输入字符串新" 
+      @input="mutationsObjectType"
       v-model="str"
       size="small"
     />
