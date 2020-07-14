@@ -8,13 +8,10 @@
 
 <script>
 import { mapMutations } from 'vuex';
-import types from '../plugins/mutation-type';
+import types from '../plugins/store/mutation-type';
 
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
-  },
+  name: 'Btns',
   methods: {
     ...mapMutations({
       mapMutation: 'increment',
