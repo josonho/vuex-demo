@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <el-button size="small" @click="onCount">add one</el-button>
     <el-button size="small" @click="mapMutation">mapMutation</el-button>
     <el-button size="small" type="danger" @click="resetCount">reset count</el-button>

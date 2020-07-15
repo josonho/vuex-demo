@@ -1,42 +1,18 @@
 <template>
   <div class="home">
-    <div class="row">user name: {{ userName }}</div>
-    <div class="row">full name: {{ fullName }}</div>
-    <div 
-      class="row"
-      v-for="item in doneTodos" 
-      :key="item.id"
-    >
-      done todo: {{ item.text }}
+    <top />
+    <div class="main">
+      <msg class="col" />
+      <operate class="col" /> 
     </div>
-    <el-input 
-      placeholder="输入你要增加的值" 
-      @input="incrementSome"
-      v-model="num"
-      size="small"
-    />  
-    <div class="row">doneTodosCount: {{ doneTodosCount }}</div>
-    <div class="row">count: {{ count }}</div>
-    <el-input 
-      placeholder="输入字符串" 
-      @input="mutationsObject"
-      v-model="str"
-      size="small"
-    />
-    <el-input 
-      placeholder="输入字符串新" 
-      @input="mutationsObjectType"
-      v-model="str"
-      size="small"
-    />
-    <div class="row">{{str || 'please input string'}}</div>
-    <btns />
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import Btns from '../components/btns';
+import Top from '../components/top';
+import Msg from '../components/msg';
+import Operate from '../components/operate';
 
 export default {
   name: 'App',
@@ -48,7 +24,9 @@ export default {
     }
   },
   components: {
-    Btns,
+    Top,
+    Msg,
+    Operate
   },
   computed: {
     ...mapState({
@@ -92,15 +70,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow: hidden;
   margin: 60px auto 0;
-  line-height: 30px;
-  max-width: 300px;
+  max-width: 600px;
 
-  & * {
-    margin-bottom: 20px;
-    text-align: center;
+  & .main {
+    display: flex;
   }
 }
-
-
 </style>

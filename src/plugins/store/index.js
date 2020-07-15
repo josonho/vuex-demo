@@ -13,6 +13,8 @@ export default new Vuex.Store({
       {id: 2, text: 'learn vue', done: false},
       {id: 6, text: 'eat', done: true},
     ],
+    str: '',
+    num: '',
   },
   getters: {
     doneTodos: (state) => {
@@ -33,7 +35,7 @@ export default new Vuex.Store({
       state.count = 0;
     },
     mutationsObject (state, payload) {
-      state.str = payload.amount;
+      state.str = payload.str;
     },
   }
 })

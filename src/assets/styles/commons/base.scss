@@ -1,4 +1,22 @@
+.col {
+  flex: 1;
+}
+
 .row {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
   background: #f0f5fb;
-  border-radius: 4px;
+  word-break: break-all;
+
+  &.one-line {
+    min-height: 50px;
+  }
+}
+
+.mt-1 {
+  margin-top: 5px;
 }
