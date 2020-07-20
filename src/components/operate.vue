@@ -1,13 +1,13 @@
 <template>
   <div class="operate">
-    <div class="row">
+    <div class="row more-line">
       <el-input 
         placeholder="输入你要增加的值" 
         @input="incrementSome"
         v-model="num"
         size="small"
       />
-      <btns class="mt-1" />
+      <btns />
     </div>
     <div class="row">
       <el-input 

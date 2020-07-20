@@ -29,6 +29,7 @@ export default new Vuex.Store({
       state.count++
     },
     incrementSome (state, n) {
+      console.log(n);
       state.count += n;
     },
     [types.COUNT_RESET] (state) {
@@ -37,5 +38,18 @@ export default new Vuex.Store({
     mutationsObject (state, payload) {
       state.str = payload.str;
     },
-  }
+  },
+  actions: {
+    increment ({ commit }) {
+      commit('increment');
+    },
+    incrementSome ({ commit }, n) {
+      commit('incrementSome', n);
+    },
+    asyncDispatch ({ commit }, n) {
+      setTimeout(() => {
+        commit('incrementSome', n);
+      }, 3000);
+    }
+  },
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="msg">
-    <div class="row">count: {{ count }}</div>
+    <div class="row more-line">count: {{ count }}</div>
     <div class="row">{{str || 'please input string'}}</div>
   </div>
 </template>
